@@ -4,6 +4,10 @@ import UserModel, { UserDocument, UserInput } from "../models/user.model";
 
 export async function createUser(input: UserInput) {
   try {
+    if (input.pseudonym === "Darth Vader") {
+      throw new Error("You're banned, Lord Vader! - Obi Wan");
+    }
+    console.log(input.pseudonym)
     const user = await UserModel.create(input);
 
     return omit(user.toJSON(), "password");

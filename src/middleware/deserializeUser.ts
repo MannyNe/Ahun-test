@@ -11,7 +11,7 @@ const deserializeUser = async (
   const accessToken = get(req, "headers.authorization", "").replace(
     /^Bearer\s/,
     ""
-  );
+  ); // "Bearer" gets removed from the start of the token to get the token only
 
   const refreshToken = get(req, "headers.x-refresh");
 
