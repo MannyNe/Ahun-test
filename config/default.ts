@@ -1,6 +1,6 @@
-const MONGO_USERNAME = process.env.MONGOUSER;
-const MONGO_PASSWORD = process.env.MONGOPASS;
-const MONGO_HOST = process.env.MONGOHOST;
+const MONGO_USERNAME = process.env.MONGOUSER || 'socialAppTest';
+const MONGO_PASSWORD = process.env.MONGOPASS || '**supersecretpassword';
+const MONGO_HOST = process.env.MONGOHOST || 'cluster0.t3b3h.mongodb.net/Users?retryWrites=true&w=majority';
 
 const config = {
     port: 1337,
