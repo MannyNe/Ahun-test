@@ -29,10 +29,10 @@ export async function updateBookHandler(
 ) {
     const userId = res.locals.user._id;
 
-    const bookId = req.params.bookId;
+    const _id = req.params._id;
     const update = req.body;
 
-    const book = await findBook({ bookId });
+    const book = await findBook({ _id });
 
     if (!book) {
         return res.sendStatus(404);
@@ -42,7 +42,7 @@ export async function updateBookHandler(
         return res.sendStatus(403);
     }
 
-    const updatedBook = await findAndUpdateBook({ bookId }, update, {
+    const updatedBook = await findAndUpdateBook({ _id }, update, {
         new: true,
     });
 
@@ -53,8 +53,8 @@ export async function getBookHandler(
     req: Request<UpdateBookInput["params"]>,
     res: Response
 ) {
-    const bookId = req.params.bookId;
-    const product = await findBook({ bookId });
+    const _id = req.params._id;
+    const product = await findBook({ _id });
 
     if (!product) {
         return res.sendStatus(404);
@@ -68,13 +68,9 @@ export async function deleteBookHandler(
     res: Response
 ) {
     const userId = res.locals.user._id;
-    const bookId = req.params.bookId;
-    console.log(res.locals.user._id);
-    console.log(req.params.bookId);
+    const _id = req.params._id;
 
-    const book = await findBook({ bookId });
-
-    console.log(book)
+    const book = await findBook({ _id });
 
     if (!book) {
         return res.sendStatus(404);

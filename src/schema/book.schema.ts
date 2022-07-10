@@ -19,7 +19,7 @@ const payload = {
 
 const params = {
   params: object({
-    bookId: string({
+    _id: string({
       required_error: "bookId is required",
     }),
   }),

@@ -37,5 +37,5 @@ export async function findAndUpdateBook(
 }
 
 export async function deleteBook(query: FilterQuery<BookDocument>) {
-  return BookModel.deleteOne(query);
+    return BookModel.deleteOne(query);
 }
