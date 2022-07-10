@@ -15,9 +15,9 @@ function routes(app: Express){
     app.get('/api/sessions', requireUser, getUserSessionsHandler)
     app.delete('/api/sessions', requireUser, deleteSessionHandler)
     app.post("/api/books", [requireUser, validateRes(createBookSchema)], createBookHandler);
-    app.put("/api/books/:bookId", [requireUser, validateRes(updateBookSchema)], updateBookHandler);
-    app.get("/api/books/:bookId", getBookHandler);
-    app.delete("/api/books/:bookId", [requireUser, validateRes(deleteBookSchema)], deleteBookHandler);
+    app.put("/api/books/:_id", [requireUser, validateRes(updateBookSchema)], updateBookHandler);
+    app.get("/api/books/:_id", validateRes(getBookSchema), getBookHandler);
+    app.delete("/api/books/:_id", [requireUser, validateRes(deleteBookSchema)], deleteBookHandler);
 
 }
 
